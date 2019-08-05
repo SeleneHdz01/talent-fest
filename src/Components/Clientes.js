@@ -4,9 +4,8 @@ export default class Clientes extends Component {
     render() {
         return (
             <div>
-                <h2>clientes</h2>
+                <h1>Clientes</h1>
             </div>
         )
     }
 }
-
