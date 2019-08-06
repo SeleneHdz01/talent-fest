@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ModalSingIn from "./ModalSingIn";
+import React, { Component } from 'react'
+import ModalSingIn from './ModalSingIn';
 
 export default class Login extends Component {
   render() {

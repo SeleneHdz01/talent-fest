@@ -101,7 +101,7 @@ class ModalSingIn extends Component {
               <div className="modal-body">
                 <form>
                   <div className="form-group">
-                    <label for="recipient-name" className="col-form-label">
+                    <label htmlFor="recipient-name" className="col-form-label">
                       Correo:
                     </label>
                     <input
@@ -112,7 +112,7 @@ class ModalSingIn extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label for="message-text" className="col-form-label">
+                    <label htmlFor="message-text" className="col-form-label">
                       Contraseña:
                     </label>
                     <input

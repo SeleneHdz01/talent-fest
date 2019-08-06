@@ -37,27 +37,27 @@ export default class SiderDemo extends Component {
               <Menu.Item>
                 <Icon type="team" />
                 <span>Clientes</span>
-                <Link to="/clientes" />
+                <Link to="/dashboard/clientes" />
               </Menu.Item>
               <Menu.Item key="2">
                 <Icon type="file-protect" />
                 <span>Licencias</span>
-                <Link to="/licencias" />
+                <Link to="/dashboard/licencias" />
               </Menu.Item>
               <Menu.Item key="3">
                 <Icon type="appstore" />
                 <span>Productos</span>
-                <Link to="/productos" />
+                <Link to="/dashboard/productos" />
               </Menu.Item>
               <Menu.Item key="4">
                 <Icon type="desktop" />
                 <span>Servicios</span>
-                <Link to="/servicios" />
+                <Link to="/dashboard/servicios" />
               </Menu.Item>
               <Menu.Item key="5">
                 <Icon type="fund" />
                 <span>Ingresos</span>
-                <Link to="/ingresos" />
+                <Link to="/dashboard/ingresos" />
               </Menu.Item>
               {/* <Menu.Item key="6">
                 <Icon type="login" />
@@ -95,12 +95,13 @@ export default class SiderDemo extends Component {
               height: "100%"
             }}
           >
-            <Route path="/clientes" component={Clientes} />
-            <Route path="/licencias" component={Licencias} />
-            <Route path="/productos" component={Productos} />
-            <Route path="/servicios" component={Servicios} />
-            <Route path="/ingresos" component={Ingresos} />
-            <Route path="/login" component={login} />
+            
+            <Route path="/dashboard/clientes" component={Clientes} />
+            <Route path="/dashboard/licencias" component={Licencias} />
+            <Route path="/dashboard/productos" component={Productos} />
+            <Route path="/dashboard/servicios" component={Servicios} />
+            <Route path="/dashboard/ingresos" component={Ingresos} />
+            <Route path="/dashboard/login" component={login} />
           </Content>
         </Layout>
       </Layout>
