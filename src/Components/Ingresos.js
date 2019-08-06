@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
+import randomColor from "randomcolor";
 
 class Layout extends React.Component {
   constructor(props) {
@@ -30,10 +31,10 @@ class Layout extends React.Component {
               {
                 label: "# of Likes",
                 data: [active, innactive],
-                backgroundColor: [
-                  "rgba(22, 141, 152, 1)",
-                  "rgba(251, 210, 45, 1)"
-                ]
+                backgroundColor: randomColor({
+                  count: 2,
+                  luminosity: "light"
+                })
               }
             ]
           },
