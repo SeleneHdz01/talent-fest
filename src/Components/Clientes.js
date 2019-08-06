@@ -5,6 +5,9 @@ import randomColor from 'randomcolor'
 class Layout extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      tabla: []
+    }
   }
   componentDidMount() {
     const node = this.node;
@@ -16,12 +19,23 @@ class Layout extends React.Component {
         console.log("customer", data);
         let labels =[];
         let count_data = [];
-        let count_id =[];
+        let tableData =[];
         data.map(customer => {
             if(labels.indexOf(customer.bussinesActivity) ==-1){
                 labels.push(customer.bussinesActivity)
             }
+            tableData.push(
+              <tr>
+                <td>{customer.companyName}</td>
+                <td>{customer.first_name}</td>
+                <td>{customer.lastLogin}</td>
+              </tr>
+            )
         });
+        this.setState({
+          tabla: tableData
+        
+        })
         labels.map(value =>{
             var count =0;
             data.map(customer => {
@@ -63,11 +77,32 @@ class Layout extends React.Component {
       <div>
           <h1>Número de Clientes: 100</h1>
         <canvas
-          style={{ width: 800, height: 350 }}
+          style={{ width: 800, height: 300 }}
           ref={node => (this.node = node)}
         />
       <div>
-          
+      <div className="row">
+      <div className="col-md-12">
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>Compañia</th>
+            <th>Nombre del Cliente</th>
+            <th>Ultima Conexion</th>
+            
+          </tr>
+        </thead>
+        <tbody id="tabla">
+        {
+          this.state.tabla.map (tr => { 
+            return tr
+          })
+        }
+
+        </tbody>
+      </table>
+      </div>
+      </div>  
       </div>
       </div>
     );
