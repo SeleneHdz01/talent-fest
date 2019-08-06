@@ -4,7 +4,6 @@ import { Icon } from "antd";
 const signin = user => {
   return fetch(`https://guarded-harbor-23202.herokuapp.com/signin`, {
     method: "POST",
-    mode: "no-cors",
     headers: {
       Accept: "appication/json",
       "Access-Control-Allow-Origin":
@@ -16,6 +15,7 @@ const signin = user => {
     .then(response => {
       return response.json();
     })
+
     .catch(err => console.log(err));
 };
 
@@ -35,24 +35,31 @@ class ModalSingIn extends Component {
 
   onChangePassword(event) {
     this.setState({ password: event.target.value });
-    console.log(this.state.email);
+    console.log(this.state.password);
   }
 
   loginToDB(event) {
     event.preventDefault();
     // this.setState({ loading: true })
-    const { email, password } = this.state;
+    // const { email, password } = this.state;
     const user = {
-      email,
-      password
+      email: this.state.email,
+      password: this.state.password
     };
     console.log("user", user);
     signin(user).then(data => {
-      console.log(data.err);
+      console.log("data", data);
 
       if (data.err) {
         this.setState({ error: data.error, loading: false });
       }
+
+      if (data.token) {
+        console.log("logueado!!!");
+      } else {
+        console.log("error login");
+      }
+
       // else {
       //   //authenticate
       //   authenticate(data, () => {
@@ -78,7 +85,7 @@ class ModalSingIn extends Component {
         <div
           className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -101,7 +108,7 @@ class ModalSingIn extends Component {
               <div className="modal-body">
                 <form>
                   <div className="form-group">
-                    <label for="recipient-name" className="col-form-label">
+                    <label htmlFor="recipient-name" className="col-form-label">
                       Correo:
                     </label>
                     <input
@@ -112,14 +119,14 @@ class ModalSingIn extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label for="message-text" className="col-form-label">
+                    <label htmlFor="message-text" className="col-form-label">
                       Contraseña:
                     </label>
                     <input
                       type="password"
                       className="form-control"
                       id="message-text"
-                      onChange={this.onChangeEmail}
+                      onChange={this.onChangePassword}
                     />
                   </div>
                 </form>
