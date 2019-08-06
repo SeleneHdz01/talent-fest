@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Layout, Menu, Icon } from "antd";
-import {Link, Route} from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import "./Menucss.css";
 import "antd/dist/antd.css";
-import Clientes from './Clientes';
+import Clientes from "./Clientes";
 import Licencias from "./Licencias";
 import Productos from "./Productos";
 import Ingresos from "./Ingresos";
@@ -28,42 +28,41 @@ export default class SiderDemo extends Component {
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
           <div className="div-sidebar-menu-top">
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-              
-                <Menu.Item >
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+              <Menu.Item>
                 <Icon type="team" />
-                <span >Clientes</span>
-                <Link to="/clientes"></Link>
-                </Menu.Item>
-                <Menu.Item key="2">
+                <span>Clientes</span>
+                <Link to="/clientes" />
+              </Menu.Item>
+              <Menu.Item key="2">
                 <Icon type="file-protect" />
                 <span>Licencias</span>
-                <Link to="/licencias"></Link>
-                </Menu.Item>
-                <Menu.Item key="3">
+                <Link to="/licencias" />
+              </Menu.Item>
+              <Menu.Item key="3">
                 <Icon type="appstore" />
                 <span>Productos</span>
-                <Link to="/productos"></Link>
-                </Menu.Item>
-                <Menu.Item key="4">
+                <Link to="/productos" />
+              </Menu.Item>
+              <Menu.Item key="4">
                 <Icon type="desktop" />
                 <span>Servicios</span>
-                <Link to="/servicios"></Link>
-                </Menu.Item>
-                <Menu.Item key="5">
+                <Link to="/servicios" />
+              </Menu.Item>
+              <Menu.Item key="5">
                 <Icon type="fund" />
                 <span>Ingresos</span>
-                <Link to="/ingresos"></Link>
-                </Menu.Item>  
-               <Menu.Item key="6" className="div-sidebar-menu-bottom">
+                <Link to="/ingresos" />
+              </Menu.Item>
+              <Menu.Item key="6" className="div-sidebar-menu-bottom">
                 <Icon type="logout" />
                 <span>Cerrar Sesión</span>
-                </Menu.Item> 
-          </Menu> 
+              </Menu.Item>
+            </Menu>
           </div>
         </Sider>
-        <Layout >
-          <Header 
+        <Layout>
+          <Header
             style={{
               background: "#fff",
               padding: 0,
@@ -83,15 +82,14 @@ export default class SiderDemo extends Component {
               padding: 24,
               background: "#fff",
               minHeight: 280,
-              height:'100%'
-
+              height: "100%"
             }}
           >
-              <Route path="/clientes" component={Clientes} />
-              <Route path="/licencias" component={Licencias} />
-              <Route path="/productos" component={Productos} />
-              <Route path="/servicios" component={Servicios} />
-              <Route path="/ingresos" component={Ingresos} />
+            <Route path="/clientes" component={Clientes} />
+            <Route path="/licencias" component={Licencias} />
+            <Route path="/productos" component={Productos} />
+            <Route path="/servicios" component={Servicios} />
+            <Route path="/ingresos" component={Ingresos} />
           </Content>
         </Layout>
       </Layout>
