@@ -23,9 +23,9 @@ class Layout extends React.Component {
           }
         });
         new Chart(node, {
-          type: "doughnut",
+          type: "pie",
           data: {
-            labels: ["Activos", "No Activos"],
+            labels: ["Activos", "Pasivos"],
             datasets: [
               {
                 label: "# of Likes",
@@ -39,8 +39,9 @@ class Layout extends React.Component {
           },
           options: {
             title: {
+              fontSize: 14,
               display: true,
-              text: "Servicios  Activos e Inactivos"
+              text: "INGRESOS"
             }
           }
         });

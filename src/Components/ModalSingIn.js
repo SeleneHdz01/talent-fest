@@ -56,7 +56,10 @@ class ModalSingIn extends Component {
       }
 
       if (data.token) {
-        document.querySelector(".modal-backdrop").remove();
+        let shadow = document.querySelector(".modal-backdrop");
+        if (shadow) {
+          shadow.remove();
+        }
         this.setState({ login: true });
 
         console.log("logueado!!!");

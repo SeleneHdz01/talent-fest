@@ -101,6 +101,7 @@ export default class Transacciones extends Component {
           },
           options: {
             title: {
+              fontSize: 14,
               display: true,
               text: "TRANSACCIONES EFECTUADAS POR MES "
             }
