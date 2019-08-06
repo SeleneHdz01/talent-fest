@@ -26,7 +26,8 @@ export default class SiderDemo extends Component {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" />
+          <div/>
+          <img src='https://4040apps.com/wp-content/uploads/2016/12/logoamarillo.png' className='logo'></img>
           <div className="div-sidebar-menu-top">
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
               
