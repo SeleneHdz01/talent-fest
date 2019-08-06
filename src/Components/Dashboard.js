@@ -5,7 +5,7 @@ import "../Components/Dashboard.css";
 import "antd/dist/antd.css";
 import Clientes from "./Clientes";
 import Licencias from "./Licencias";
-import Productos from "./Productos";
+import Transacciones from "./Transacciones";
 import Ingresos from "./Ingresos";
 import Servicios from "./Servicios";
 import login from "./Login";
@@ -46,8 +46,8 @@ export default class SiderDemo extends Component {
               </Menu.Item>
               <Menu.Item key="3">
                 <Icon type="appstore" />
-                <span>Productos</span>
-                <Link to="/dashboard/productos" />
+                <span>Transacciones</span>
+                <Link to="/dashboard/transacciones" />
               </Menu.Item>
               <Menu.Item key="4">
                 <Icon type="desktop" />
@@ -93,7 +93,7 @@ export default class SiderDemo extends Component {
           >
             <Route path="/dashboard/clientes" component={Clientes} />
             <Route path="/dashboard/licencias" component={Licencias} />
-            <Route path="/dashboard/productos" component={Productos} />
+            <Route path="/dashboard/transacciones" component={Transacciones} />
             <Route path="/dashboard/servicios" component={Servicios} />
             <Route path="/dashboard/ingresos" component={Ingresos} />
             <Route path="/dashboard/login" component={login} />
