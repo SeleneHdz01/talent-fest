@@ -22,7 +22,7 @@
   .btn-primary {
     top: 272px;
     position: relative;
-    left: 485.906px;
+    left: 833.015px;;
     width: 220px;
     transform: matrix(1, 0, 0, 1, 0, 0);
     height: 44px;
@@ -38,6 +38,25 @@
    .btn-primary:hover{
      background-color: rgb(0, 0, 0);
    }
+   .btn-Usuario {
+    top: 372px;
+    position: relative;
+    left: 833px;
+    width: 220px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    height: 44px;
+    background-color: rgb(251, 210, 45);
+    background-blend-mode: normal;
+    border: 0px none rgb(0, 0, 0);
+    box-shadow: rgb(170, 154, 37) 2px 4px 10px 10px;
+    color: rgb(0, 0, 0);
+    letter-spacing: 3px;
+    word-spacing: 6px;
+    font-size: 18px;
+   }
+   .btn-Usuario:hover{
+    background-color: rgb(0, 0, 0);
+  }
 
 .modal-header {
   background-color: rgb(196, 196, 196);
