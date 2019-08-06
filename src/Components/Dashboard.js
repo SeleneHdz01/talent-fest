@@ -30,7 +30,7 @@ export default class SiderDemo extends Component {
           <div />
           <img
             src="https://4040apps.com/wp-content/uploads/2016/12/logoamarillo.png"
-            className="logo"
+            className="logo logoSideBar"
           />
           <div className="div-sidebar-menu-top">
             <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
