@@ -1,11 +1,39 @@
 import React, { Component } from 'react'
 
-export default class Ingresos extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Ingresos</h1>
-            </div>
-        )
-    }
+var Chart = require("chart.js");
+class Layout extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    const node = this.node;
+    var myChart = new Chart(node, {
+      type: "doughnut",
+      data: {
+        labels: ["Activos", "No Activos"],
+        datasets: [
+          {
+            label: "# of Likes",
+            data: [1200, 999],
+            backgroundColor: [
+              "rgba(22, 141, 152, 1)",
+              
+              "rgba(251, 210, 45, 1)"
+            ]
+          }
+        ]
+      }
+    });
+  }
+  render() {
+    return (
+      <div>
+        <canvas
+          style={{ width: 800, height: 250 }}
+          ref={node => (this.node = node)}
+        />
+      </div>
+    );
+  }
 }
+export default Layout;
