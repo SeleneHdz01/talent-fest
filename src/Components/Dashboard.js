@@ -59,14 +59,10 @@ export default class SiderDemo extends Component {
                 <span>Ingresos</span>
                 <Link to="/dashboard/ingresos" />
               </Menu.Item>
-              {/* <Menu.Item key="6">
-                <Icon type="login" />
-                <span>Iniciar Sesión</span>
-                <Link to="/login" />
-              </Menu.Item> */}
               <Menu.Item key="7" className="div-sidebar-menu-bottom">
                 <Icon type="logout" />
                 <span>Cerrar Sesión</span>
+                <Link to="/" />
               </Menu.Item>
             </Menu>
           </div>
@@ -95,7 +91,6 @@ export default class SiderDemo extends Component {
               height: "100%"
             }}
           >
-            
             <Route path="/dashboard/clientes" component={Clientes} />
             <Route path="/dashboard/licencias" component={Licencias} />
             <Route path="/dashboard/productos" component={Productos} />

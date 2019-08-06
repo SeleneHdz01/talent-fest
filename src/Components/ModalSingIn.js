@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Icon } from "antd";
+import { Redirect } from "react-router-dom";
 
 const signin = user => {
   return fetch(`https://guarded-harbor-23202.herokuapp.com/signin`, {
@@ -22,7 +23,7 @@ const signin = user => {
 class ModalSingIn extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: "", password: "" };
+    this.state = { email: "", password: "", login: false };
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.loginToDB = this.loginToDB.bind(this);
@@ -55,7 +56,11 @@ class ModalSingIn extends Component {
       }
 
       if (data.token) {
+        document.querySelector(".modal-backdrop").remove();
+        this.setState({ login: true });
+
         console.log("logueado!!!");
+        console.log(this.props);
       } else {
         console.log("error login");
       }
@@ -71,6 +76,7 @@ class ModalSingIn extends Component {
   render() {
     return (
       <div>
+        {this.state.login ? <Redirect to="/dashboard" /> : ""}
         <button
           type="button"
           className="btn btn-primary"
@@ -82,74 +88,81 @@ class ModalSingIn extends Component {
           <Icon type="solution" />
           Administrador
         </button>
-        <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
-                  Inicia Sesion
-                </h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <form>
-                  <div className="form-group">
-                    <label htmlFor="recipient-name" className="col-form-label">
-                      Correo:
-                    </label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      id="recipient-name"
-                      onChange={this.onChangeEmail}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="message-text" className="col-form-label">
-                      Contraseña:
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="message-text"
-                      onChange={this.onChangePassword}
-                    />
-                  </div>
-                </form>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Cerrar
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={this.loginToDB}
-                >
-                  Ingresar
-                </button>
+        {this.state.login ? (
+          ""
+        ) : (
+          <div
+            className="modal fade"
+            id="exampleModal"
+            tabIndex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">
+                    Inicia Sesion
+                  </h5>
+                  <button
+                    type="button"
+                    className="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  <form>
+                    <div className="form-group">
+                      <label
+                        htmlFor="recipient-name"
+                        className="col-form-label"
+                      >
+                        Correo:
+                      </label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="recipient-name"
+                        onChange={this.onChangeEmail}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="message-text" className="col-form-label">
+                        Contraseña:
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="message-text"
+                        onChange={this.onChangePassword}
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={this.loginToDB}
+                  >
+                    Ingresar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
