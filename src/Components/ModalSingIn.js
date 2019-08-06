@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import { Icon } from "antd";
 
-// const proxyurl = "https://guarded-harbor-23202.herokuapp.com/";
-// const url = "https://localhost:3000/api/signin"; // site that doesn’t send Access-Control-*
-// fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
-// .then(response => response.text())
-// .then(contents => console.log(contents))
-// .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
-
 const signin = user => {
-  return fetch(`https://guarded-harbor-23202.herokuapp.com/api/signin`, {
+  return fetch(`https://guarded-harbor-23202.herokuapp.com/signin`, {
     method: "POST",
     mode: "no-cors",
     headers: {
@@ -53,8 +46,10 @@ class ModalSingIn extends Component {
       email,
       password
     };
-    console.log(user);
+    console.log("user", user);
     signin(user).then(data => {
+      console.log(data.err);
+
       if (data.err) {
         this.setState({ error: data.error, loading: false });
       }
@@ -71,7 +66,7 @@ class ModalSingIn extends Component {
       <div>
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
           data-whatever="@mdo"
@@ -81,65 +76,65 @@ class ModalSingIn extends Component {
           Administrador
         </button>
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
           tabindex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
                   Inicia Sesion
                 </h5>
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   data-dismiss="modal"
                   aria-label="Close"
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <form>
-                  <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">
+                  <div className="form-group">
+                    <label for="recipient-name" className="col-form-label">
                       Correo:
                     </label>
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       id="recipient-name"
                       onChange={this.onChangeEmail}
                     />
                   </div>
-                  <div class="form-group">
-                    <label for="message-text" class="col-form-label">
+                  <div className="form-group">
+                    <label for="message-text" className="col-form-label">
                       Contraseña:
                     </label>
                     <input
                       type="password"
-                      class="form-control"
+                      className="form-control"
                       id="message-text"
                       onChange={this.onChangeEmail}
                     />
                   </div>
                 </form>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-dismiss="modal"
                 >
                   Cerrar
                 </button>
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   onClick={this.loginToDB}
                 >
                   Ingresar
